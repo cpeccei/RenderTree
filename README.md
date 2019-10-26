@@ -5,7 +5,7 @@ excellent [anytree](https://github.com/c0fec0de/anytree) library.
 
 ## Usage
 
-## Convert indented lines to tree
+### Convert indented lines to tree
 
 Type your tree structure using indented lines to represent the levels
 of the tree. Each new level must be indented using **four spaces**. There
@@ -39,3 +39,8 @@ Alpha
     └── Hotel
         └── India
 ```
+
+## Install
+
+- Via Package Control: search for `Render Tree`.
+- Manual: clone this repo into your Sublime text 3 `Packages` folder.
