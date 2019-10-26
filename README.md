@@ -1,6 +1,7 @@
 # RenderTree
 
-Sublime Text 3 plugin to render trees as text.
+Sublime Text 3 plugin to render tree structures as text. Uses the
+excellent [anytree](https://github.com/c0fec0de/anytree) library.
 
 ## Usage
 
