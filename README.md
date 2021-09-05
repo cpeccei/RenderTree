@@ -7,10 +7,16 @@ excellent [anytree](https://github.com/c0fec0de/anytree) library.
 
 ### Convert indented lines to tree
 
-Type your tree structure using indented lines to represent the levels
-of the tree. Each new level must be indented using **four spaces**. There
-must always be a single root node that has no identation ("Alpha" in
-the example below).
+Type your tree structure using indented lines to represent the levels of the
+tree. You can use any sequence of whitespace to represent an indention level
+but it must be consistent across all lines. The indentation sequence is
+inferred from the second line of the tree, since by definition that must be
+indented. In the example below each level is indented by four spaces but you
+could just as easily use three spaces, or even a mixture of tabs and spaces,
+as long as the same string is used on all lines.
+
+There must always be a single root node that has no identation ("Alpha" in the
+example below).
 
 ```text
 Alpha
@@ -39,6 +45,9 @@ Alpha
     └── Hotel
         └── India
 ```
+
+Error messages and informational messages are printed to the Sublime Text
+console.
 
 ## Install
 
