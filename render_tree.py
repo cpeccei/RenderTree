@@ -17,10 +17,11 @@ def render_tree(text):
     indent_string = m.group(0)
     print('Info: using string', repr(indent_string), 'for each indent level')
     # Add each line to tree
-    branch = [0]
     prev_depth = 0
     label = lines[0].strip()
     nodes = {0: Node(label)}
+    # Track which node to use as parent at a given depth, {depth: parent}
+    parent = {1: 0}
     for i, line in enumerate(lines):
         if i == 0:
             continue
@@ -35,19 +36,12 @@ def render_tree(text):
             return
         label = m.group(3).strip()
         nodes[i] = Node(label)
-        if depth > prev_depth:
-            branch.append(i)
-        elif depth == prev_depth:
-            branch[depth] = i
-        else:
-            branch = branch[:depth] + [i]
-        if len(branch) >= 2:
-            parent, child = branch[-2:]
-            nodes[child].parent = nodes[parent]
+        nodes[i].parent = nodes[parent[depth]]
+        parent[depth + 1] = i
         prev_depth = depth
 
     output = '\n'
-    for pre, _, node in RenderTree(nodes[child].root):
+    for pre, _, node in RenderTree(nodes[0]):
         output += '%s%s' % (pre, node.name) + '\n'
     output += '\n'
     return output
